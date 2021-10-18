@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nlw_payflow/modules/home/home_page.dart';
-import 'package:nlw_payflow/modules/login/login_page.dart';
 
 class AuthController {
   var _isAuthenticated = false;
@@ -12,20 +10,10 @@ class AuthController {
     if (user != null) {
       _isAuthenticated = true;
       _user = user;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ),
-      );
+      Navigator.pushReplacementNamed(context, '/home');
     } else {
       _isAuthenticated = false;
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LoginPage(),
-        ),
-      );
+      Navigator.pushReplacementNamed(context, '/login');
     }
   }
 }
